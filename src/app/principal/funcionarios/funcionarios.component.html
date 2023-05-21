@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-100 col-md-100 col-lg-10 mx-auto">
+      <div class="card border-0 shadow rounded-9 my-9">
+        <div class="card-body p-10 p-sm-9">
+          <h4 class="card-title text-center mb-5 fw-light fs-5">
+            <b>Funcionários</b>
+          </h4>
+
+          <form id="add-form" (ngSubmit)="f.form.valid && saveFuncionario(f)" #f="ngForm" novalidate>
+
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input [(ngModel)]="funcionario.nome_funcionario" name="text" type="nome" class="form-control" id="nome" placeholder="Informe o nome do usuário">
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input [(ngModel)]="funcionario.email" name="email" type="email" class="form-control" id="email" placeholder="Informe o email do usuário">
+            </div>
+
+            <div class="form-group">
+              <label for="senha">Senha</label>
+              <input [(ngModel)]="funcionario.senha" name="senha" type="text" class="form-control" id="senha" placeholder="Informe a senha do usuário">
+            </div>
+
+            <div class="form-group">
+              <label for="telefone">Telefone</label>
+              <input [(ngModel)]="funcionario.telefone" name="telefone" type="text" class="form-control" id="telefone" placeholder="Informe o telefone do usuário">
+            </div>
+
+            <div class="form-group">
+              <label for="salario">Salario</label>
+              <input [(ngModel)]="funcionario.salario" name="salario" type="number" class="form-control" id="salario" placeholder="Informe o salario do usuário">
+            </div>
+
+            <div class="form-group">
+              <label for="permissao">Permissão</label>
+              <div>
+                <select [(ngModel)]="funcionario.cargo" id="permissao" name="permissao" #model="ngModel" required>
+                  class="form-class select">-->
+                  <option value="" disabled selected>Selecione um Cargo</option>
+                  <option *ngFor="let p of permissoes" >{{p.nome}}</option>
+                </select>
+              </div>
+            </div>
+
+            <br>
+            <button (click)="cadastrar()"   class="btn btn-lg btn-success btn-block" >CONFIRMAR</button>
+            <br>
+          </form>
+        </div>
+
+        <div *ngIf="funcionarios.length === 0; else temClientes" class="vazio">
+          <h4>Voê não tem permissão</h4>
+        </div>
+        <ng-template #temClientes class="tabela">
+          <table  class="table table-dark table-striped">
+            <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">ID</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Email</th>
+              <th scope="col">Senha</th>
+              <th scope="col">cargo</th>
+              <th scope="col">telefone</th>
+              <th scope="col">Salario</th>
+              <th scope="col">Editar</th>
+              <th scope="col">Excluir</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let c of funcionarios; index as i">
+              <th scope="row">{{i+1}}</th>
+              <th>{{c.id_func}}</th>
+              <th>{{c.nome_funcionario}}</th>
+              <th>{{c.email}}</th>
+              <th>{{c.senha}}</th>
+              <th>{{c.cargo}}</th>
+              <th>{{c.salario}}</th>
+              <th>{{c.telefone}}</th>
+              <th><button type="button" class="btn btn-warning editar" (click)="editCliente(c)">Editar</button><br></th>
+              <th><button type='button' class="btn btn-danger" (click)="excluirCliente(c.email)">Excluir</button><br></th>
+
+            </tbody>
+          </table>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

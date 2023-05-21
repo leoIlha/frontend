@@ -1,0 +1,58 @@
+{
+  "clientes": [
+    {
+      "id": "1",
+      "nome": "Alencar",
+      "endereco": "Rua das pitangas",
+      "ativo": false
+    },
+    {
+      "id": "2",
+      "nome": "Claudia",
+      "endereco": "Rua das pitangas",
+      "ativo": true
+    },
+    {
+      "id": "3",
+      "nome": "Nicole",
+      "endereco": "Rua das pitangas",
+      "ativo": true
+    },
+    {
+      "id": "4",
+      "nome": "dine",
+      "endereco": "Rua das pitangas",
+      "ativo": true
+    },
+    {
+      "id": "22",
+      "nome": "alencar",
+      "endereco": "chamanha",
+      "ativo": false
+    },
+    {
+      "id": "222",
+      "nome": "alencar",
+      "endereco": "chamanha",
+      "ativo": false
+    },
+    {
+      "id": 44,
+      "nome": "Jose da Silva",
+      "endereco": "teste",
+      "ativo": true
+    },
+    {
+      "id": 227,
+      "nome": "alencar",
+      "endereco": "chamanha",
+      "ativo": false
+    },
+    {
+      "id": 2999,
+      "nome": "alencar",
+      "endereco": "chamanha",
+      "ativo": false
+    }
+  ]
+}

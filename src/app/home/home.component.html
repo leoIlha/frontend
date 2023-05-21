@@ -1,0 +1,137 @@
+
+
+<!--<div class="container-fluid mt-3">-->
+<!--  <h2>Bem-vindo à Biblioteca</h2>-->
+<!--  <p>Este é um sistema de gerenciamento de vendas de livros.</p>-->
+<!--  <div class="row">-->
+<!--    <div class="col-md-4">-->
+<!--      <div class="card">-->
+<!--        <div class="card-header">-->
+<!--          <h4>Livros</h4>-->
+<!--        </div>-->
+<!--        <div class="card-body">-->
+<!--          <p>Aqui você pode cadastrar e gerenciar os livros disponíveis para venda.</p>-->
+<!--          <a href="#" class="btn btn-primary">Ir para Livros</a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-md-4">-->
+<!--      <div class="card">-->
+<!--        <div class="card-header">-->
+<!--          <h4>Clientes</h4>-->
+<!--        </div>-->
+<!--        <div class="card-body">-->
+<!--          <p>Aqui você pode cadastrar e gerenciar os clientes que compram os livros.</p>-->
+<!--          <a href="#" class="btn btn-primary">Ir para Clientes</a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-md-4">-->
+<!--      <div class="card">-->
+<!--        <div class="card-header">-->
+<!--          <h4>Carrinho de Compras</h4>-->
+<!--        </div>-->
+<!--        <div class="card-body">-->
+<!--          <p>Aqui você pode gerenciar o Carrinho de Compra.</p>-->
+<!--          <a href="#" class="btn btn-primary">Ir para Carrinho</a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-md-4">-->
+<!--      <div class="card">-->
+<!--        <div class="card-header">-->
+<!--          <h4>Funcionários</h4>-->
+<!--        </div>-->
+<!--        <div class="card-body">-->
+<!--          <p>Aqui você pode gerenciar os Funcionários</p>-->
+<!--          <a href="#" class="btn btn-primary">Ir para Vendas</a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-md-4">-->
+<!--      <div class="card">-->
+<!--        <div class="card-header">-->
+<!--          <h4>Relatórios</h4>-->
+<!--        </div>-->
+<!--        <div class="card-body">-->
+<!--          <p>Aqui você pode gerenciar os Relatórios</p>-->
+<!--          <a href="#" class="btn btn-primary">Ir para Relatórios</a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="container mt-3">
+  <h2>Bem-vindo à Biblioteca</h2>
+  <p>Este é um sistema de gerenciamento de vendas de livros.</p>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <h4>Livros</h4>
+        </div>
+        <div class="card-body">
+          <p>Aqui você pode cadastrar e gerenciar os livros disponíveis para venda.</p>
+          <a routerLink="/principal/livro" class="btn btn-primary btn-sm text-white">Livros</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <h4>Clientes</h4>
+        </div>
+        <div class="card-body">
+          <p>Aqui você pode cadastrar e gerenciar os clientes que compram os livros.</p>
+          <a routerLink="/principal/cliente" class="btn btn-primary btn-sm text-white">Clientes</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <h4>Carrinho de Compras</h4>
+        </div>
+        <div class="card-body">
+          <p>Aqui você pode gerenciar o Carrinho de Compra.</p>
+          <a href="#" class="btn btn-primary btn-sm text-white">Carrinho</a>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="this.cargo=='gerente'" class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <h4>Funcionários</h4>
+        </div>
+        <div class="card-body">
+          <p>Aqui você pode gerenciar os Funcionários.</p>
+          <a routerLink="/principal/funcionario" class="btn btn-primary btn-sm text-white">Funcionários</a>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="this.cargo=='gerente'" class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <h4>Relatórios</h4>
+        </div>
+        <div class="card-body">
+          <p>Aqui você pode gerenciar os Relatórios.</p>
+          <a href="#" class="btn btn-primary btn-sm text-white">Relatórios</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<router-outlet></router-outlet>
+
+

@@ -1,0 +1,68 @@
+.container{
+  margin-top: 6%;
+}
+
+.table{
+  margin: 2%;
+  width: 96%;
+}
+
+.card-title{
+  padding-bottom: 2%;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.cardPesquisa{
+  text-align: left!important;
+}
+
+.tituloPesquisa{
+  margin-left: 20%;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 50px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.opcoes{
+  text-align: center;
+}
+
+.bi-list{
+  padding: 10%;
+  border: 1px solid #A9A9A9;
+  border-radius: 7px;
+}
+
+a{
+  color: black;
+  width: 100%;
+}
+
+a:link{
+  text-decoration: none;
+}
+
+.editar{
+  margin-bottom: 10%;
+}
+
+.vazio{
+  text-align: center;
+}
+

@@ -1,0 +1,48 @@
+.container{
+  margin-top: 6%;
+}
+.card-title{
+  padding-bottom: 2%;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+b{
+  font-size: 28px;
+}
+
+.bi-list{
+  padding: 10%;
+  border: 1px solid #A9A9A9;
+  border-radius: 7px;
+}
+
+a{
+  color: black;
+  width: 100%;
+}
+
+a:link{
+  text-decoration: none;
+}
+
+.menu{
+  text-align: center;
+}
+
+ul{
+  list-style: none;
+}
+
+li{
+  padding: 2em;
+  border: 1px solid #e1e1e1;
+  border-left: none;
+  border-right: none;
+  border-collapse: collapse;
+  margin-right: 4%;
+}
+
+li:hover{
+  background-color: #cacaca;
+}
+

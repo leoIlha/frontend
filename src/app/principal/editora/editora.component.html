@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-100 col-md-100 col-lg-10 mx-auto">
+      <div class="card border-0 shadow rounded-9 my-9">
+        <div class="card-body p-10 p-sm-9">
+          <h4 class="card-title text-center mb-5 fw-light fs-5">
+            <b>Editoras</b>
+          </h4>
+          <form id="add-form" (ngSubmit)="f.form.valid && saveSessao(f)" #f="ngForm" novalidate>
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input [(ngModel)]="editora.nome" #model="ngModel" required name="nome" type="text" class="form-control"
+                     id="nome" placeholder="Insira o nome da editora">
+            </div>
+            <br>
+            <button (click)="cadastrar()" class="btn btn-lg btn-success btn-block">CONFIRMAR</button>
+            <br>
+          </form>
+
+        </div>
+        <div class="card-body p-10 p-sm-9">
+          <h4 class="navbar navbar-light bg-light">
+            <input class="busca" #busca type="search" placeholder="Buscar editora" (keyup)="filtrar(busca.value)">
+          </h4>
+
+          <div *ngIf="editoras.length === 0; else temEditoras" class="vazio">
+            <h4>nenhuma editora encontrada</h4>
+          </div>
+          <ng-template #temEditoras class="tabela">
+            <table class="table table-dark table-striped">
+              <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Excluir</th>
+
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let editora of editoras; index as s">
+                <th scope="row">{{s}}</th>
+                <th>{{editora.id_edit}}</th>
+                <th>{{editora.nome}}</th>
+               <th><button type="button" class="btn btn-warning editar" (click)="editSessao(editora)">Editar</button><br></th>
+               <th><button type='button' class="btn btn-danger" (click)="excluirSessao(editora.id_edit)">Excluir</button><br></th>
+
+              </tbody>
+            </table>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
