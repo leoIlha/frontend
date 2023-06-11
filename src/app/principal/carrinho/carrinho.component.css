@@ -67,3 +67,9 @@ a:link{
   text-align: center;
 }
 
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+

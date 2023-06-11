@@ -12,5 +12,16 @@ export class HomeService {
   private readonly url = 'http://localhost:8080/bib/funcionario';
   constructor(private http: HttpClient, private  router: Router) { }
 
+  private email!:string | undefined | any;
+
+
+  setEmail(email: any) {
+      this.email = email;
+    console.log("kk"+email)
+  }
+
+  getEmail() {
+    return this.email;
+  }
 
 }

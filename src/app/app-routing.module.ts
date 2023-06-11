@@ -7,7 +7,7 @@ import {PrincipalComponent} from "./principal/principal.component";
 import {HomeComponent} from "./home/home.component";
 import {AuthGuardService} from "./security/auth-guard.service";
 import { ClienteComponent } from './principal/cliente/cliente.component';
-import { EditoraComponent } from './principal/editora/editora.component';
+import { CarrinhoComponent } from './principal/carrinho/carrinho.component';
 import {GeneroComponent} from "./principal/genero/genero.component";
 
 const routes: Routes = [
@@ -19,7 +19,7 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent, canActivate: [AuthGuardService]},
       { path: 'livro', component: LivrosComponent, canActivate: [AuthGuardService]},
       { path: 'cliente', component: ClienteComponent, canActivate: [AuthGuardService]},
-      { path: 'editora', component: EditoraComponent, canActivate: [AuthGuardService]},
+      { path: 'carrinho', component: CarrinhoComponent, canActivate: [AuthGuardService]},
       { path: 'genero', component: GeneroComponent, canActivate: [AuthGuardService]}
 
     ]},

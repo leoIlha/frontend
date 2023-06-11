@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Autor} from "../../model/autor";
+
 import {ClienteService} from "../cliente/cliente.service";
 import {NgForm} from "@angular/forms";
 import {Genero} from "../../model/genero";

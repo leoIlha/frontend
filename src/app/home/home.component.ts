@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
     console.log("asdasd"+this.funcionario.email)
     this.cargo = this.lservice.getCargo();
     console.log("home cargo:"+this.cargo)
+
   }
   permissao():void{
   }

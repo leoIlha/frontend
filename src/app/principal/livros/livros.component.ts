@@ -2,12 +2,12 @@ import { Livro } from './../../model/livro';
 import { NgForm } from '@angular/forms';
 import { LivrosService } from './livros.service';
 import { Component, OnInit } from '@angular/core';
-import { Autor } from 'src/app/model/autor';
+import { Venda } from '../../model/Venda';
 import {ClienteService} from "../cliente/cliente.service";
 import {Genero} from "../../model/genero";
 import {Editora} from "../../model/editora";
 import {GeneroService} from "../genero/genero.service";
-import {EditoraService} from "../editora/editora.service";
+import {CarrinhoService} from "../carrinho/carrinho.service";
 
 @Component({
   selector: 'app-livros',
@@ -22,16 +22,17 @@ export class LivrosComponent implements OnInit {
 
   filtro: string = '';
 
-  autores: Autor[] = [];
+  autores: Venda[] = [];
   generos:Genero[]=[];
   editoras:Editora[]=[];
 
+  livrospegos: Livro[] = [];
 
   livros: Livro[] = [];
 
 
   constructor(private service: LivrosService, private serviceautor: ClienteService, private generoService:GeneroService, private editoraservice:
-  EditoraService) {
+  CarrinhoService) {
 
   }
 
@@ -45,12 +46,6 @@ export class LivrosComponent implements OnInit {
       console.log(dados);
       this.livros = dados;
     });
-    this.generoService.listar().subscribe((dados) => {
-      this.generos = dados;
-    })
-    this.editoraservice.listar().subscribe((dados) => {
-      this.editoras = dados;
-    })
   }
 
   cadastrar(): void{
@@ -64,6 +59,7 @@ export class LivrosComponent implements OnInit {
       this.livros = this.livros.filter(a =>
             a.nome_livro.toUpperCase().indexOf(palavraChave) >= 0
         );
+      console.log(this.livros);
     }
   }
 
@@ -87,8 +83,30 @@ export class LivrosComponent implements OnInit {
     this.service.excluir(id).subscribe(()=>{this.listar()})
   }
 
+  // adicionarcar(livro:Livro):void{
+  //   console.log("operação carrinho:"+livro.nome_livro)
+  //   console.log("operação carrinho:"+livro.preco)
+  //   this.service.setNome_livro(livro.nome_livro)
+  //   this.service.setPreco(livro.preco)
+  // }
+
+  adicionarcar(livro:Livro):void{
+    console.log("operação carrinho:"+livro.nome_livro)
+    console.log("operação carrinho:"+livro.preco)
+  //  livro.quantidade=1
+    this.livrospegos.push(livro)
+    console.log("livros selecionados"+this.livrospegos)
+   // this.service.setNome_livro(livro.nome_livro)
+   // this.service.setPreco(livro.preco)
+    for (let i = 0; i < this.livrospegos.length; i++) {
+      console.log("Livro selecionado " + (i+1) + ":");
+      console.log(JSON.stringify(this.livrospegos[i], null, 2));
+    }
+    this.service.adicionarLivro(livro);
+  }
+
   adicionarEstoque(n:number){
-  console.log("botao clicado")
+    console.log("botao clicado")
     console.log("novo valor:"+n)
     this.livro.estoque_liv+=n
     console.log(this.livro.estoque_liv)

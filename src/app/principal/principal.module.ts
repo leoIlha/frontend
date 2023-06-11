@@ -7,7 +7,7 @@ import {RouterModule, RouterOutlet} from "@angular/router";
 import {FuncionariosModule} from "./funcionarios/funcionarios.module";
 import {HomeModule} from "../home/home.module";
 import { LivrosComponent } from './livros/livros.component';
-import { EditoraComponent } from './editora/editora.component';
+import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { GeneroComponent } from './genero/genero.component';
 import { ClienteComponent } from './cliente/cliente.component';
 
@@ -19,7 +19,7 @@ import { ClienteComponent } from './cliente/cliente.component';
 @NgModule({
   declarations: [
     PrincipalComponent,
-    EditoraComponent,
+    CarrinhoComponent,
     GeneroComponent,
     ClienteComponent,
 

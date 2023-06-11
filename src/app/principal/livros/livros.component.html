@@ -184,6 +184,18 @@
               <div *ngIf="model.errors">Número de páginas é obrigatório</div>
             </div>
 
+            <div class="form-group">
+              <label for="num_pag">Preco</label>
+              <input [(ngModel)]="livro.preco" name="preco" type="number" class="form-control" id="preco"
+                     placeholder="Informe o preco do livro" [ngClass]="{
+                  'is-invalid': f.submitted && model.invalid}">
+            </div>
+            <div class="invalid-feedback">
+              <div *ngIf="model.errors">Número do preco é obrigatório</div>
+            </div>
+
+
+
             <div *ngIf="numaux==0" class="form-group">
               <label for="estoque_liv">Nº de Estoque</label>
               <input [(ngModel)]="livro.estoque_liv" name="num_pag" type="number" class="form-control" id="estoque_liv"
@@ -194,17 +206,16 @@
               <div *ngIf="model.errors">Número do estoque é obrigatório</div>
             </div>
 
-            <tr *ngIf="numaux==1">
-              <th colspan="4" class="text-right">Estoque:</th>
-              <span>{{livro.estoque_liv}}</span>
-              <input [(ngModel)]="livro.novoestoq" type="number" class="form-control" id="novoestoq" name="novoestoq">
-              <button (click)="adicionarEstoque(livro.novoestoq)">Adicionar</button>
-              <button (click)="removerEstoque(livro.novoestoq)">Remover</button>
 
-              <th></th>
-            </tr>
+<!--            <tr *ngIf="numaux==1">-->
+<!--              <th colspan="4" class="text-right">Estoque:</th>-->
+<!--              <span>{{livro.estoque_liv}}</span>-->
+<!--              <input [(ngModel)]="livro.novoestoq" type="number" class="form-control" id="novoestoq" name="novoestoq">-->
+<!--              <button class="btn btn-primary" (click)="adicionarEstoque(livro.novoestoq)">Adicionar</button>-->
+<!--              <button class="btn btn-danger" (click)="removerEstoque(livro.novoestoq)">Remover</button>-->
 
-
+<!--              <th></th>-->
+<!--            </tr>-->
 
             <div class="form-group">
               <label for="ano_publi">Data de Lançamento</label>
@@ -217,10 +228,31 @@
             </div>
 
 
+            <tr *ngIf="numaux==1">
+              <th colspan="4" class="text-right">Estoque:</th>
+              <span>{{livro.estoque_liv}}</span>
+              <input [(ngModel)]="livro.novoestoq" type="number" class="form-control" id="novoestoq" name="novoestoq">
+              <button class="btn btn-primary" (click)="adicionarEstoque(livro.novoestoq)">Adicionar</button>
+              <button class="btn btn-danger" (click)="removerEstoque(livro.novoestoq)">Remover</button>
+
+              <th></th>
+            </tr>
+
             <br>
             <button (click)="cadastrar()" class="btn btn-lg btn-success btn-block">CONFIRMAR</button>
             <br>
           </form>
+<!--          <br>-->
+
+<!--          <tr *ngIf="numaux==1">-->
+<!--            <th colspan="4" class="text-right">Estoque:</th>-->
+<!--            <span>{{livro.estoque_liv}}</span>-->
+<!--            <input [(ngModel)]="livro.novoestoq" type="number" class="form-control" id="novoestoq" name="novoestoq">-->
+<!--            <button class="btn btn-primary" (click)="adicionarEstoque(livro.novoestoq)">Adicionar</button>-->
+<!--            <button class="btn btn-danger" (click)="removerEstoque(livro.novoestoq)">Remover</button>-->
+
+<!--            <th></th>-->
+<!--          </tr>-->
 
         </div>
         <div class="card-body p-10 p-sm-9">
@@ -244,7 +276,9 @@
                 <th scope="col">Editora</th>
                 <th scope="col">Ano de Publicação</th>
                 <th scope="col">Nº de Páginas</th>
+                <th scope="col">Preço</th>
                 <th scope="col">Nº de estoque</th>
+                <th scope="col">Estoque</th>
                 <th scope="col">Editar</th>
                 <th scope="col">Excluir</th>
               </tr>
@@ -260,7 +294,9 @@
                 <th>{{l.editora}}</th>
                 <th>{{l.data_lanc}}</th>
                 <th>{{l.num_paginas}}</th>
+                <th>{{l.preco}}</th>
                 <th>{{l.estoque_liv}}</th>
+                <th> <button type="button" class="btn btn-primary editar" (click)="adicionarcar(l)">Adicionar</button><br></th>
                 <th> <button type="button" class="btn btn-warning editar" (click)="editLivro(l)">Editar</button><br></th>
                 <th> <button type='button' class="btn btn-danger" (click)="excluirLivro(l.id_liv)">Excluir</button><br></th>
 

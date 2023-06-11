@@ -12,7 +12,7 @@ import {Cliente} from "../../model/cliente";
 export class ClienteComponent {
   cliente: Cliente = new Cliente();
 
- clientes: Cliente[] = [];
+  clientes: Cliente[] = [];
 
   constructor(private service: ClienteService) {
   }
@@ -25,6 +25,10 @@ export class ClienteComponent {
     this.service.listar().subscribe((dados) => {
       console.log(dados);
       this.clientes = dados;
+      for (let cliente of this.clientes) {
+        console.log(cliente);
+        this.service.adicionarLivro(cliente);
+      }
     });
 
   }
