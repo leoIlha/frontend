@@ -174,12 +174,12 @@ import { HomeService } from "../../home/home.service";
   styleUrls: ['./carrinho.component.css']
 })
 export class CarrinhoComponent {
+
   livro: Livro = new Livro();
   venda: Venda = new Venda();
   cliente: Cliente = new Cliente();
   clientes: Cliente[] = [];
   pegarvalores: number = 0;
-
   livrosCarrinho: Livro[] = [];
   clientesCarrOriginais: Cliente[] = [];
   clientesCarr: Cliente[] = [];
@@ -221,9 +221,8 @@ export class CarrinhoComponent {
     this.livrosCarrinho = this.livroservice.getLivrosPegos();
     console.log("carrinho:", JSON.stringify(this.livrosCarrinho));
   }
-
   receberclientes(): void {
-    this.clientesCarrOriginais = this.clienteService.getLivrosPegos();
+    this.clientesCarrOriginais = this.clienteService.getClientesPegos();
     this.clientesCarr = this.clientesCarrOriginais;
     console.log("carrinho clientes:", JSON.stringify(this.clientesCarr));
   }
@@ -278,6 +277,7 @@ export class CarrinhoComponent {
     } else {
       // Caso a palavra-chave seja vazia, ocultar a tabela de clientes
       this.clientesCarr = this.clientesCarrOriginais;
+      // this.mostrarTabelaClientes = false;
       this.mostrarTabelaClientes = false;
       return; // Adicionando o return aqui para sair da função quando a tabela for ocultada
     }
@@ -306,8 +306,9 @@ export class CarrinhoComponent {
       console.log("ID CLIENTE:" + venda.id_cli);
       console.log("ID LIVRO:" + venda.id_liv);
       for (const livro of livrosCarrinho) {
-        venda.id_cli = this.clienteSelecionado.id_cli;
-        venda.id_liv = livro.id_liv;
+        if (this.clienteSelecionado !== null) {
+          venda.id_cli = this.clienteSelecionado.id_cli;
+        }        venda.id_liv = livro.id_liv;
         venda.quantidade = livro.quantidade;
         console.log("********************************");
         console.log("GET_ESTOQUE LIVRO:" + livro.estoque_liv);
@@ -318,6 +319,12 @@ export class CarrinhoComponent {
         } else {
           venda.email = this.hservice.getEmail();
           this.carrinhoService.enviarDadosVenda(venda).subscribe(() => {});
+
+          this.livrosCarrinho = [];
+          this.clienteSelecionado = null;
+          this.venda = new Venda();
+
+
           alert("VENDA REALIZADA COM SUCESSO")
         }
       }
@@ -327,6 +334,7 @@ export class CarrinhoComponent {
     console.log("VINDO DO BACK");
     console.log("id venda" + venda.id_venda);
   }
+
 }
 
 

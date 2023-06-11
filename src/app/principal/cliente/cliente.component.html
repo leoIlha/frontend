@@ -37,9 +37,19 @@
 
         </div>
         <div class="card-body p-10 p-sm-9">
-          <h4 class="navbar navbar-light bg-light">
-            <input class="busca" #busca type="search" placeholder="Buscar Cliente" (keyup)="filtrar(busca.value)">
-          </h4>
+<!--          <h4 class="navbar navbar-light bg-light">-->
+<!--            <input class="busca" #busca type="search" placeholder="Buscar Cliente" (keyup)="filtrar(busca.value)">-->
+<!--          </h4>-->
+
+<!--          <div class="search-bar"><input class="busca" #busca type="search" placeholder="Buscar Cliente" (input)="filtrar(busca.value)">-->
+<!--          </div>-->
+          <div class="navbar navbar-light bg-light">
+            <h4 class="form-inline">
+              <!--            <input class="busca" #busca type="search" placeholder="Buscar Livro" (keyup)="filtrar(busca.value)">-->
+              <input class="form-control mr-sm-2" #busca type="search" placeholder="Pesquisar" (keyup)="filtrar(busca.value)">
+            </h4>
+
+
 
           <div *ngIf="clientes.length === 0; else temClientes" class="vazio">
             <h4>nenhum cliente encontrado</h4>
@@ -60,6 +70,7 @@
               </thead>
               <tbody>
                 <tr *ngFor="let cliente of clientes; index as s">
+
                   <th scope="row">{{s+1}}</th>
                   <th>{{cliente.id_cli}}</th>
                   <th>{{cliente.cpf}}</th>

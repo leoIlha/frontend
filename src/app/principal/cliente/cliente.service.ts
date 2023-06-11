@@ -33,12 +33,12 @@ export class ClienteService {
 
  clientespegos: Cliente[] = [];
 
-  adicionarLivro(cliente: Cliente): void {
+  adicionarCliente(cliente: Cliente): void {
     this.clientespegos.push(cliente);
     console.log("cliente service"+this.clientespegos)
   }
 
-  getLivrosPegos(): Cliente[] {
+  getClientesPegos(): Cliente[] {
     return this.clientespegos;
   }
 

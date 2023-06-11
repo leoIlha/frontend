@@ -57,9 +57,16 @@ export class LivrosComponent implements OnInit {
       palavraChave = palavraChave.toUpperCase();
 
       this.livros = this.livros.filter(a =>
-            a.nome_livro.toUpperCase().indexOf(palavraChave) >= 0
-        );
+            a.nome_livro.toUpperCase().indexOf(palavraChave) >= 0 ||
+            a.autor.toUpperCase().indexOf(palavraChave) >= 0 ||
+            a.editora.toUpperCase().indexOf(palavraChave) >= 0 ||
+            a.genero.toUpperCase().indexOf(palavraChave) >= 0
+          //  a.data_lanc.toDateString().indexOf(palavraChave) >= 0
+      );
       console.log(this.livros);
+    }
+    else{
+      this.listar();
     }
   }
 
@@ -118,8 +125,5 @@ export class LivrosComponent implements OnInit {
     console.log(this.livro.estoque_liv)
 
   }
-
-
-
 
 }

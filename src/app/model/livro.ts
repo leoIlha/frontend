@@ -12,4 +12,5 @@ export class Livro {
   quantidade!: number;
   precoTotal!: number;
 
+
 }

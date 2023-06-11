@@ -114,9 +114,7 @@
 <!--&lt;!&ndash;  <button class="btn btn-primary" (click)="realizarvenda(venda)">Finalizar Compra</button>&ndash;&gt;-->
 <!--</div>-->
 
-
-
-
+<!--<form>-->
 <div class="container my-5">
   <h2>Carrinho de Compras</h2>
   <div *ngIf="livrosCarrinho.length === 0" class="vazio">
@@ -173,7 +171,6 @@
     <label for="data_venda">Data de Venda</label>
     <input [(ngModel)]="venda.data_venda" name="data_venda" type="date" class="form-control" id="data_venda" placeholder="Informe a Data da Venda">
   </div>
-
   <div class="form-group">
     <th>Total: R$ {{ calcularTotal() }}</th>
   </div>
@@ -184,14 +181,33 @@
 <!--      <button routerLink="/clientes">Ir para Clientes</button>-->
 <!--    </h4>-->
 
-    <div class="card-body p-10 p-sm-9">
-      <h4 class="navbar navbar-light bg-light">
+
+<!--    <div class="card-body p-10 p-sm-9">-->
+<!--      <h4 class="navbar navbar-light bg-light">-->
+<!--        <div class="search-bar">-->
+<!--          <input class="busca" #busca type="search" placeholder="Buscar Cliente" (keyup)="filtrar(busca.value)">-->
+<!--          <button class="btn btn-success" routerLink="/principal/cliente">Ir para Clientes</button>-->
+<!--        </div>-->
+<!--      </h4>-->
+<!--    </div>-->
+
+    <div class="navbar navbar-light bg-light">
+
         <div class="search-bar">
-          <input class="busca" #busca type="search" placeholder="Buscar Cliente" (keyup)="filtrar(busca.value)">
-          <button class="btn btn-success" routerLink="/principal/cliente">Ir para Clientes</button>
+          <input lass="form-control mr-sm-2" #busca type="search" placeholder="Buscar Cliente" (keyup)="filtrar(busca.value)">
+          <button class="btn btn-outline-success my-2 my-sm-0" routerLink="/principal/cliente">Ir para Clientes</button>
         </div>
-      </h4>
+
     </div>
+
+
+
+    <!--    <nav class="navbar navbar-light bg-light">-->
+<!--      <form class="form-inline">-->
+<!--        <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">-->
+<!--        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>-->
+<!--      </form>-->
+<!--    </nav>-->
 
 
     <div *ngIf="mostrarTabelaClientes" class="tabela">
@@ -227,14 +243,14 @@
       <h4>Nenhum cliente encontrado</h4>
     </div>
   </div>
-
   <br>
-
   <div *ngIf="clienteSelecionado" class="alert alert-success fade show" role="alert">
     Cliente selecionado: {{ clienteSelecionado.nome_cliente }}
   </div>
 
   <button class="btn btn-primary" (click)="realizarvenda(livrosCarrinho, venda)">Finalizar Compra</button>
+<!--  <button class="btn btn-primary" >Finalizar Compra</button>-->
+
 </div>
 
 

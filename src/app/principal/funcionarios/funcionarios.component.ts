@@ -23,7 +23,7 @@ export class FuncionariosComponent implements OnInit {
 
   funcionarios: Funcionario[] = [];
 
-  ed:boolean = true;
+  ed:boolean = false;
 
    permissoes= [
      {

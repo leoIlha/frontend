@@ -1,129 +1,3 @@
-<!--<div class="container">-->
-<!--  <div class="row">-->
-<!--    <div class="col-sm-100 col-md-100 col-lg-10 mx-auto">-->
-<!--      <div class="card border-0 shadow rounded-9 my-9">-->
-<!--        <div class="card-body p-10 p-sm-9">-->
-<!--          <h4 class="card-title text-center mb-5 fw-light fs-5">-->
-<!--            <b>Livros</b>-->
-<!--          </h4>-->
-<!--          <form id="add-form" (ngSubmit)="f.form.valid && saveLivro(f)" #f="ngForm" novalidate>-->
-<!--            <div class="form-group">-->
-<!--              <label for="nome">Nome</label>-->
-<!--              <input [(ngModel)]="livro.nome" #model="ngModel" required name="nome" type="text" class="form-control"-->
-<!--                id="nome" placeholder="Informe o nome do livro" [ngClass]="{-->
-<!--                  'is-invalid': f.submitted && model.invalid}">-->
-<!--            </div>-->
-<!--            <div class="invalid-feedback">-->
-<!--              <div *ngIf="model.errors">Nome do livro é obrigatório</div>-->
-<!--            </div>-->
-
-<!--            <div class="form-group">-->
-<!--              <label for="ano_publi">Data de Lançamento</label>-->
-<!--              <input [(ngModel)]="livro.data_lanc" name="ano_publi" type="date" class="form-control" id="ano_publi"-->
-<!--                placeholder="Informe o ano de Laçamento do livro" [ngClass]="{-->
-<!--                  'is-invalid': f.submitted && model.invalid}">-->
-<!--            </div>-->
-<!--            <div class="invalid-feedback">-->
-<!--              <div *ngIf="model.errors">Data é obrigatório</div>-->
-<!--            </div>-->
-
-<!--            <div class="form-group">-->
-<!--              <label for="num_pag">Nº de Páginas</label>-->
-<!--              <input [(ngModel)]="livro.paginas" name="num_pag" type="text" class="form-control" id="num_pag"-->
-<!--                placeholder="Informe o nº de páginas" [ngClass]="{-->
-<!--                  'is-invalid': f.submitted && model.invalid}">-->
-<!--            </div>-->
-<!--            <div class="invalid-feedback">-->
-<!--              <div *ngIf="model.errors">Número de páginas é obrigatório</div>-->
-<!--            </div>-->
-
-<!--            <div class="form-group">-->
-<!--              <label for="autor">Autor</label>-->
-<!--              <div>-->
-<!--                <select [(ngModel)]="livro.id_autor" id="autor" name="autor" #model="ngModel" required-->
-<!--                  class="form-class select">-->
-<!--                  <option value="" disabled selected>Selecione um Autor</option>-->
-<!--                  <option *ngFor="let s of autores" [ngValue]="s.id_aut">{{s.nome}}</option>-->
-<!--                </select>-->
-<!--              </div>-->
-<!--            </div>-->
-
-<!--            <div class="form-group">-->
-<!--              <label for="genero">Gênero</label>-->
-<!--              <div>-->
-<!--                <select [(ngModel)]="livro.id_genero" id="genero" name="genero" #model="ngModel" required-->
-<!--                        class="form-class select">-->
-<!--                  <option value="" disabled selected>Selecione um Gênero</option>-->
-<!--                  <option *ngFor="let s of generos" [ngValue]="s.id_gen">{{s.nome}}</option>-->
-<!--                </select>-->
-<!--              </div>-->
-<!--            </div>-->
-
-<!--            <div class="form-group">-->
-<!--              <label for="Editora">Editora</label>-->
-<!--              <div>-->
-<!--                <select [(ngModel)]="livro.id_editora" id="editora" name="editora" #model="ngModel" required-->
-<!--                        class="form-class select">-->
-<!--                  <option value="" disabled selected>Selecione uma Editora</option>-->
-<!--                  <option *ngFor="let s of editoras" [ngValue]="s.id_edit">{{s.nome}}</option>-->
-<!--                </select>-->
-<!--              </div>-->
-<!--            </div>-->
-
-<!--            <br>-->
-<!--            <button (click)="cadastrar()" class="btn btn-lg btn-success btn-block">CONFIRMAR</button>-->
-<!--            <br>-->
-<!--          </form>-->
-
-<!--        </div>-->
-<!--        <div class="card-body p-10 p-sm-9">-->
-<!--          <h4 class="card-title cardPesquisa text-center fw-light fs-5">-->
-<!--            <input class="busca" #busca type="search" placeholder="Buscar Livro" (keyup)="filtrar(busca.value)">-->
-
-<!--          </h4>-->
-
-<!--          <div *ngIf="livros.length === 0; else temLivros" class="vazio">-->
-<!--            <h4>Sem livros aqui</h4>-->
-<!--          </div>-->
-<!--          <ng-template #temLivros class="tabela">-->
-<!--            <table class="table table-dark table-striped">-->
-<!--              <thead class="thead-dark">-->
-<!--                <tr>-->
-<!--                  <th scope="col">#</th>-->
-<!--                  <th scope="col">ID</th>-->
-<!--                  <th scope="col">Nome</th>-->
-<!--                  <th scope="col">Autor</th>-->
-<!--                  <th scope="col">Gênero</th>-->
-<!--                  <th scope="col">Editora</th>-->
-<!--                  <th scope="col">Ano de Publicação</th>-->
-<!--                  <th scope="col">Nº de Páginas</th>-->
-<!--                  <th scope="col">Editar</th>-->
-<!--                  <th scope="col">Excluir</th>-->
-<!--                </tr>-->
-<!--              </thead>-->
-<!--              <tbody>-->
-
-<!--                <tr *ngFor="let l of livros; index as i">-->
-<!--                  <th scope="row">{{i+1}}</th>-->
-<!--                  <th>{{l.id_liv}}</th>-->
-<!--                  <th>{{l.nome}}</th>-->
-<!--                  <th>{{l.nome_autor}}</th>-->
-<!--                  <th>{{l.nome_genero}}</th>-->
-<!--                  <th>{{l.nome_editora}}</th>-->
-<!--                  <th>{{l.data_lanc}}</th>-->
-<!--                  <th>{{l.paginas}}</th>-->
-<!--                  <th> <button type="button" class="btn btn-warning editar" (click)="editLivro(l)">Editar</button><br></th>-->
-<!--                  <th> <button type='button' class="btn btn-danger" (click)="excluirLivro(l.id_liv)">Excluir</button><br></th>-->
-
-<!--              </tbody>-->
-<!--            </table>-->
-<!--          </ng-template>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
 <div class="container">
   <div class="row">
     <div class="col-sm-100 col-md-100 col-lg-10 mx-auto">
@@ -255,11 +129,24 @@
 <!--          </tr>-->
 
         </div>
-        <div class="card-body p-10 p-sm-9">
-          <h4 class="card-title cardPesquisa text-center fw-light fs-5">
-            <input class="busca" #busca type="search" placeholder="Buscar Livro" (keyup)="filtrar(busca.value)">
 
+
+
+        <div class="navbar navbar-light bg-light">
+          <h4 class="form-inline">
+<!--            <input class="busca" #busca type="search" placeholder="Buscar Livro" (keyup)="filtrar(busca.value)">-->
+            <input class="form-control mr-sm-2" #busca type="search" placeholder="Pesquisar" (keyup)="filtrar(busca.value)">
           </h4>
+
+
+
+<!--          <nav class="navbar navbar-light bg-light">-->
+<!--            <form class="form-inline">-->
+<!--              <input class="form-control mr-sm-2" #busca type="search" placeholder="Pesquisar" (keyup)="filtrar(busca.value)">-->
+<!--&lt;!&ndash;              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>&ndash;&gt;-->
+<!--            </form>-->
+<!--          </nav>-->
+
 
           <div *ngIf="livros.length === 0; else temLivros" class="vazio">
             <h4>Sem livros aqui</h4>
@@ -308,7 +195,6 @@
     </div>
   </div>
 </div>
-
 
 
 
