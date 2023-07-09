@@ -1,0 +1,43 @@
+<div class="container">
+  <h1 class="mt-5">Relatórios do Gerente</h1>
+  <div class="row mt-5">
+    <div class="col-md-6">
+      <h3>Livro Mais Vendido</h3>
+      <p><strong>Título:</strong> {{ livros[0]?.nome_livro }}</p>
+      <p><strong>Quantidade vendida:</strong>  {{ livros[0]?.totaldevendas }} unidades</p>
+    </div>
+<!--    <div class="col-md-6">-->
+<!--      <h3>Livros em Falta</h3>-->
+<!--      <p>Livro Y</p>-->
+<!--      <p>Livro Z</p>-->
+<!--    </div>-->
+    <div class="col-md-6">
+      <h3>Livros em Falta</h3>
+      <ul>
+        <li *ngFor="let livro of livrosfalta">
+          <p>{{ livro.nome_livro }}</p>
+          <p>Estoque: {{ livro.estoque_liv }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-6">
+      <h3>Funcionário que Mais Vendeu</h3>
+      <p><strong>Nome:</strong> {{ funcionariomais[0]?.nome_funcionario }}</p>
+      <p><strong>Quantidade vendida:</strong> {{ funcionariomais[0]?.totalvendas}}</p>
+    </div>
+    <div class="col-md-6">
+      <h3>Funcionário que Menos Vendeu</h3>
+      <p><strong>Nome:</strong> {{ funcionariomenos[0]?.nome_funcionario }}</p>
+      <p><strong>Quantidade vendida:</strong> {{ funcionariomenos[0]?.totalvendas}}</p>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-6">
+      <h3>Cliente que Mais Comprou</h3>
+      <p><strong>Nome:</strong> {{ cliente[0]?.nome_cliente }}</p>
+      <p><strong>Quantidade comprada:</strong> {{ cliente[0]?.totaldecompras }} compras</p>
+    </div>
+  </div>
+</div>

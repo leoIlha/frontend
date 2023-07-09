@@ -8,7 +8,7 @@ import {FuncionariosModule} from "./funcionarios/funcionarios.module";
 import {HomeModule} from "../home/home.module";
 import { LivrosComponent } from './livros/livros.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
-import { GeneroComponent } from './genero/genero.component';
+import { RelatoriosComponent } from './relatorios/relatorios.component';
 import { ClienteComponent } from './cliente/cliente.component';
 
 
@@ -20,7 +20,7 @@ import { ClienteComponent } from './cliente/cliente.component';
   declarations: [
     PrincipalComponent,
     CarrinhoComponent,
-    GeneroComponent,
+    RelatoriosComponent,
     ClienteComponent,
 
 

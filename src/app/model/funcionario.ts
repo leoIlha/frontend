@@ -7,7 +7,7 @@ export class Funcionario{
   cargo!:string| undefined;
   senha!: string | undefined;
   token!: boolean | undefined;
-
+  totalvendas!: number;
   constructor(nome_funcionario?: string, salario?: number, telefone?: string,email?:string ,cargo?:string,senha?:string,token?: boolean) {
     this.nome_funcionario = nome_funcionario;
     this.salario = salario;

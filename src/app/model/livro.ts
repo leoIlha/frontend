@@ -11,6 +11,6 @@ export class Livro {
   novoestoq!: number;
   quantidade!: number;
   precoTotal!: number;
-
+  totaldevendas!: number;
 
 }

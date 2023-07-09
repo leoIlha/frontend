@@ -8,7 +8,7 @@ import {HomeComponent} from "./home/home.component";
 import {AuthGuardService} from "./security/auth-guard.service";
 import { ClienteComponent } from './principal/cliente/cliente.component';
 import { CarrinhoComponent } from './principal/carrinho/carrinho.component';
-import {GeneroComponent} from "./principal/genero/genero.component";
+import {RelatoriosComponent} from "./principal/relatorios/relatorios.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -20,7 +20,7 @@ const routes: Routes = [
       { path: 'livro', component: LivrosComponent, canActivate: [AuthGuardService]},
       { path: 'cliente', component: ClienteComponent, canActivate: [AuthGuardService]},
       { path: 'carrinho', component: CarrinhoComponent, canActivate: [AuthGuardService]},
-      { path: 'genero', component: GeneroComponent, canActivate: [AuthGuardService]}
+      { path: 'relatorios', component: RelatoriosComponent, canActivate: [AuthGuardService]}
 
     ]},
 

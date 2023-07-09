@@ -7,6 +7,7 @@ export class Cliente{
   nome_cliente!: string | undefined | any;
   email_cliente!: string | undefined;
   telefone_cliente!: string | undefined;
+  totaldecompras!: number;
 
 
   /*constructor(id?: number, nome?: string, email?: string, senha?: string, permissao?: Permissao) {

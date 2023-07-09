@@ -6,7 +6,7 @@ import { Venda } from '../../model/Venda';
 import {ClienteService} from "../cliente/cliente.service";
 import {Genero} from "../../model/genero";
 import {Editora} from "../../model/editora";
-import {GeneroService} from "../genero/genero.service";
+import {RelatoriosService} from "../relatorios/relatorios.service";
 import {CarrinhoService} from "../carrinho/carrinho.service";
 
 @Component({
@@ -31,7 +31,7 @@ export class LivrosComponent implements OnInit {
   livros: Livro[] = [];
 
 
-  constructor(private service: LivrosService, private serviceautor: ClienteService, private generoService:GeneroService, private editoraservice:
+  constructor(private service: LivrosService, private serviceautor: ClienteService, private generoService:RelatoriosService, private editoraservice:
   CarrinhoService) {
 
   }

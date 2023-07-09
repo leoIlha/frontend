@@ -13,6 +13,7 @@ import {Cliente} from "../../model/cliente";
 export class CarrinhoService {
 
   private readonly API_BACK = "http://localhost:8080/bib/carrinho"
+  private readonly api_cli = "http://localhost:8080/bib/carrinho/cli"
 
   constructor(private http: HttpClient) { }
 
@@ -39,6 +40,9 @@ export class CarrinhoService {
   //   console.log("CARRINHO SERVICE LIVROS:"+ livro.nome_livro); console.log(livro.preco),console.log(livro.quantidade)
   // }
 
+  listarltodosclientes(): Observable<Cliente[]>{
+    return this.http.get<Cliente[]>(this.api_cli);
+  }
 
 
 }

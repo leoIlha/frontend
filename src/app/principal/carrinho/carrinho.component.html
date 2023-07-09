@@ -1,120 +1,3 @@
-
-<!--<div class="container my-5">-->
-<!--  <h2>Carrinho de Compras</h2>-->
-<!--  <div *ngIf="livrosCarrinho.length === 0" class="vazio">-->
-<!--    <h4>Nenhum livro selecionado</h4>-->
-<!--  </div>-->
-
-<!--  <table class="table table-striped" *ngIf="livrosCarrinho.length > 0">-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--      <th scope="col">#</th>-->
-<!--      <th scope="col">Produto</th>-->
-<!--      <th scope="col">Preço Unitário</th>-->
-<!--      <th scope="col">Quantidade</th>-->
-<!--      <th scope="col">Preço Total</th>-->
-<!--      <th scope="col"></th>-->
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-<!--    <tr *ngFor="let livro of livrosCarrinho; let i = index">-->
-<!--      <th scope="row">{{ i + 1 }}</th>-->
-<!--      <td>{{ livro.nome_livro }}</td>-->
-<!--      <td>R$ {{ livro.preco }}</td>-->
-<!--      <td>-->
-<!--        <input type="number" min="1" [(ngModel)]="livro.quantidade" (ngModelChange)="atualizarPrecoTotal(livro)" [ngModelOptions]="{standalone: true}">-->
-<!--      </td>-->
-<!--      <td *ngIf="livro.quantidade === 1">R$ {{ livro.preco }}</td>-->
-<!--      <td *ngIf="livro.quantidade > 1">R$ {{ livro.precoTotal }}</td>-->
-<!--      <td>-->
-<!--        <button class="btn btn-danger btn-sm" (click)="removerLivro(i)">Remover</button>-->
-<!--      </td>-->
-
-
-<!--    </tr>-->
-<!--    <tr>-->
-<!--      <th colspan="4" class="text-right">Total:</th>-->
-
-<!--      <th>R$ {{ calcularTotal() }}</th>-->
-<!--      <th></th>-->
-<!--    </tr>-->
-<!--    </tbody>-->
-<!--  </table>-->
-<!--  <h2>Venda</h2>-->
-
-<!--  <div class="form-group">-->
-<!--    <label for="forma_pagamento">Forma de Pagamento</label>-->
-<!--    <div>-->
-<!--      <select [(ngModel)]="venda.forma_pagamento" id="forma_pagamento" name="forma_pagamento" #model="ngModel" required>-->
-<!--        class="form-class select">&ndash;&gt;-->
-<!--        <option value="" disabled selected>Selecione um Cargo</option>-->
-<!--        <option *ngFor="let p of formas" >{{p.forma_pagamento}}</option>-->
-<!--      </select>-->
-<!--    </div>-->
-<!--  </div>-->
-
-<!--  <div class="form-group">-->
-<!--    <label for="data_venda">Data de Venda</label>-->
-<!--    <input [(ngModel)]="venda.data_venda" name="data_venda" type="date" class="form-control" id="data_venda"-->
-<!--           placeholder="Informe a Data da Venda">-->
-<!--  </div>-->
-
-<!--  <div class="form-group">-->
-<!--&lt;!&ndash;    <label for="data_venda">Valor Total</label>&ndash;&gt;-->
-<!--&lt;!&ndash;    <input [(ngModel)]="venda.valor_total_venda" name="valor_total_venda" type="number" class="form-control" id="valor_total_venda"&ndash;&gt;-->
-<!--&lt;!&ndash;    value="{{calcularTotal()}}">&ndash;&gt;-->
-<!--    <th>Total: R$ {{calcularTotal()}}</th>-->
-<!--  </div>-->
-
-<!--  <div class="card-body p-10 p-sm-9">-->
-<!--    <h4 class="navbar navbar-light bg-light">-->
-<!--      <input class="busca" #busca type="search" placeholder="Buscar Cliente" (keyup)="filtrar(busca.value)">-->
-<!--    </h4>-->
-
-<!--    <div *ngIf="clientesCarr.length === 0; else temClientes" class="vazio">-->
-<!--      <h4>nenhum cliente encontrado</h4>-->
-<!--    </div>-->
-<!--    <ng-template #temClientes class="tabela">-->
-<!--      <table class="table table-dark table-striped">-->
-<!--        <thead class="thead-dark">-->
-<!--        <tr>-->
-<!--          <th scope="col">#</th>-->
-<!--          <th scope="col">ID</th>-->
-<!--          <th scope="col">CPF</th>-->
-<!--          <th scope="col">Nome</th>-->
-<!--          <th scope="col">Telefone</th>-->
-<!--          <th scope="col">Email</th>-->
-<!--          <th scope="col">Selecionar</th>-->
-
-<!--        </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--        <tr *ngFor="let cliente of clientesCarr; let s = index">-->
-<!--          <th scope="row">{{s+1}}</th>-->
-<!--          <th>{{cliente.id_cli}}</th>-->
-<!--          <th>{{cliente.cpf}}</th>-->
-<!--          <th>{{cliente.nome_cliente}}</th>-->
-<!--          <th>{{cliente.telefone_cliente}}</th>-->
-<!--          <th>{{cliente.email_cliente}}</th>-->
-<!--<th>-->
-<!--  <button class="btn btn-primary btn-sm" (click)="selecionarCliente(cliente)">Selecionar</button>-->
-<!--</th>-->
-
-<!--        </tbody>-->
-<!--      </table>-->
-<!--    </ng-template>-->
-<!--  </div>-->
-
-<!--<br>-->
-<!--<div *ngIf="clienteSelecionado" class="alert alert-success fade show" role="alert">-->
-<!--  Cliente selecionado: {{ clienteSelecionado.nome_cliente }}-->
-<!--</div>-->
-<!--  <button class="btn btn-primary" (click)="realizarvenda(livrosCarrinho, venda)">Finalizar Compra</button>-->
-
-<!--&lt;!&ndash;  <button class="btn btn-primary" (click)="realizarvenda(venda)">Finalizar Compra</button>&ndash;&gt;-->
-<!--</div>-->
-
-<!--<form>-->
 <div class="container my-5">
   <h2>Carrinho de Compras</h2>
   <div *ngIf="livrosCarrinho.length === 0" class="vazio">
@@ -127,6 +10,7 @@
       <th scope="col">#</th>
       <th scope="col">Produto</th>
       <th scope="col">Preço Unitário</th>
+      <th scope="col">Qtd Disponivel</th>
       <th scope="col">Quantidade</th>
       <th scope="col">Preço Total</th>
       <th scope="col"></th>
@@ -137,6 +21,8 @@
       <th scope="row">{{ i + 1 }}</th>
       <td>{{ livro.nome_livro }}</td>
       <td>R$ {{ livro.preco }}</td>
+      <td>R$ {{ livro.estoque_liv }}</td>
+
       <td>
         <input type="number" min="1" [(ngModel)]="livro.quantidade" (ngModelChange)="atualizarPrecoTotal(livro)" [ngModelOptions]="{standalone: true}">
       </td>

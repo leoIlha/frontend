@@ -119,7 +119,7 @@ export class ClienteComponent {
 
   private listar(): void {
     this.service.listar().subscribe((dados) => {
-      console.log(dados);
+      console.log("dados cliente"+dados);
       this.clientes = dados;
       for (let cliente of this.clientes) {
         console.log(cliente);
